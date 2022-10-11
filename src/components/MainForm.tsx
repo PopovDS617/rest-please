@@ -44,7 +44,7 @@ const MainForm = (props: Props) => {
       return { ...prev, json: event.target.value };
     });
   };
-  console.log(formData);
+
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
 

@@ -7,6 +7,9 @@ type Props = {
 const ResponseHeaders = (props: Props) => {
   const updateResponseHeaders = (headers) => {
     const array = [];
+    if (!headers) {
+      return;
+    }
     Object.entries(headers).forEach(([key, value]) => {
       array.push(
         <div className="flex">

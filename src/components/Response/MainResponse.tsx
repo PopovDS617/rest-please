@@ -10,7 +10,6 @@ type Props = {
 };
 
 const MainResponse = (props: Props) => {
-  console.log(props.loadedData);
   return (
     <div>
       <ResponseMetrics
@@ -20,10 +19,13 @@ const MainResponse = (props: Props) => {
             ? props.loadedData.customData.time
             : '0'
         }
-        size={prettyBytes(
-          JSON.stringify(props.loadedData.data).length +
-            JSON.stringify(props.loadedData.headers).length
-        )}
+        size={
+          props.loadedData.data &&
+          prettyBytes(
+            JSON.stringify(props.loadedData.data).length +
+              JSON.stringify(props.loadedData.headers).length
+          )
+        }
       />
       <div className="flex">
         <ResponseBody bodyData={props.loadedData.data} />

@@ -8,7 +8,9 @@ const ResponseBody = (props: Props) => {
   return (
     <div>
       Body
-      <code>{JSON.stringify(props.bodyData)} </code>
+      <code>
+        <pre>{JSON.stringify(props.bodyData, null, 2)}</pre>
+      </code>
     </div>
   );
 };

@@ -3,11 +3,11 @@ import MainForm from '../components/MainForm';
 import MainResponse from '../components/Response/MainResponse';
 import axios from 'axios';
 import { PairsToObject } from '../utils/PairsToObject';
+import { resolve } from 'node:path/win32';
 
 const Homepage = () => {
   const [responseData, setResponseData] = useState(null);
   console.log(responseData);
-
   axios.interceptors.request.use((request) => {
     request.customData = request.customData || {};
     request.customData.startTime = new Date().getTime();
@@ -21,26 +21,26 @@ const Homepage = () => {
     return response;
   }
 
-  axios.interceptors.response.use(updateEndTime, (e) => {
-    return Promise.reject(updateEndTime(e.response));
-  });
+  axios.interceptors.response.use(updateEndTime, updateEndTime);
 
-  const sumbitData = async (data) => {
+  const sumbitData = async (input) => {
+    const options = {
+      url: input.url,
+      method: input.method,
+      params: PairsToObject(input.query.queryKey, input.query.queryValue),
+      headers: PairsToObject(
+        input.headers.headersKey,
+        input.headers.headersValue
+      ),
+      data: input.json ? JSON.parse(input.json) : null,
+    };
+
     try {
-      const response = await axios({
-        url: data.url,
-        method: data.method,
-        params: PairsToObject(data.query.queryKey, data.query.queryValue),
-        headers: PairsToObject(
-          data.headers.headersKey,
-          data.headers.headersValue
-        ),
-        data: JSON.parse(data.json),
-      });
+      const response = await axios(options);
       setResponseData(response);
     } catch (error) {
-      setResponseData(error.response);
       console.log(error.response);
+      setResponseData(error.response.response);
     }
     // .catch((e) => e)
     // .then((response) => {
