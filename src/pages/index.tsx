@@ -28,9 +28,9 @@ const Homepage = () => {
     return response;
   }
 
-  axios.interceptors.response.use(updateEndTime, (e) =>
-    updateEndTime(e.response)
-  );
+  axios.interceptors.response.use(updateEndTime, (e) => {
+    return updateEndTime(e.response);
+  });
 
   const sumbitData = async (input) => {
     const options = {
@@ -48,8 +48,9 @@ const Homepage = () => {
       const response = await axios(options);
       setResponseData(response);
     } catch (error) {
-      console.log(error.response);
-      setResponseData(error.response.response);
+      console.log(error);
+
+      setResponseData(error.response?.response);
     }
   };
 
