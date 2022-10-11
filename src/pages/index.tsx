@@ -3,12 +3,19 @@ import MainForm from '../components/MainForm';
 import MainResponse from '../components/Response/MainResponse';
 import axios from 'axios';
 import { PairsToObject } from '../utils/PairsToObject';
-import { resolve } from 'node:path/win32';
+
+import { AxiosRequestConfig } from 'axios';
+export interface ICustomRequest extends AxiosRequestConfig {
+  customData?: {
+    time?: number;
+    startTime?: number;
+  };
+}
 
 const Homepage = () => {
   const [responseData, setResponseData] = useState(null);
-  console.log(responseData);
-  axios.interceptors.request.use((request) => {
+
+  axios.interceptors.request.use((request: ICustomRequest) => {
     request.customData = request.customData || {};
     request.customData.startTime = new Date().getTime();
     return request;
@@ -21,7 +28,9 @@ const Homepage = () => {
     return response;
   }
 
-  axios.interceptors.response.use(updateEndTime, updateEndTime);
+  axios.interceptors.response.use(updateEndTime, (e) =>
+    updateEndTime(e.response)
+  );
 
   const sumbitData = async (input) => {
     const options = {
@@ -42,11 +51,6 @@ const Homepage = () => {
       console.log(error.response);
       setResponseData(error.response.response);
     }
-    // .catch((e) => e)
-    // .then((response) => {
-    //   console.log(response);
-    //   setResponseData(response);
-    // });
   };
 
   return (

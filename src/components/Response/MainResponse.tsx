@@ -10,6 +10,7 @@ type Props = {
 };
 
 const MainResponse = (props: Props) => {
+  console.log(props.loadedData);
   return (
     <div>
       <ResponseMetrics
