@@ -18,7 +18,7 @@ const MainResponse = (props: Props) => {
         time={
           props.loadedData.customData?.time
             ? props.loadedData.customData.time
-            : '0'
+            : 0
         }
         size={
           props.loadedData.data &&

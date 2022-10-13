@@ -1,6 +1,10 @@
 import React from 'react';
 
-type Props = {};
+type Props = {
+  status: number | string;
+  time: number;
+  size: string;
+};
 
 const ResponseMetrics = (props: Props) => {
   return (

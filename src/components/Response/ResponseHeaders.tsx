@@ -1,11 +1,11 @@
 import React from 'react';
 
 type Props = {
-  headersData: {};
+  headersData: { [key: string]: string };
 };
 
 const ResponseHeaders = (props: Props) => {
-  const updateResponseHeaders = (headers) => {
+  const updateResponseHeaders = (headers: { [key: string]: string }) => {
     const array = [];
     if (!headers) {
       return;

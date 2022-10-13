@@ -1,7 +1,7 @@
 import React from 'react';
 
 type Props = {
-  bodyData: string;
+  bodyData: object;
 };
 
 const ResponseBody = (props: Props) => {

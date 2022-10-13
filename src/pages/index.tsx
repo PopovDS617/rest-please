@@ -48,8 +48,6 @@ const Homepage = () => {
       const response = await axios(options);
       setResponseData(response);
     } catch (error) {
-      console.log(error);
-
       setResponseData(error.response?.response);
     }
   };

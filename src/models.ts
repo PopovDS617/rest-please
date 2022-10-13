@@ -1,5 +1,5 @@
 export interface IResponse {
-  status: number;
+  status: number | string;
   customData?: { time: number };
   headers: {};
   data: {};
