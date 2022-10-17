@@ -1,3 +1,71 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #15272d;
+  overflow: overlay;
+}
+
+.custom-request-scrollbar {
+  scrollbar-gutter: auto;
+}
+
+.custom-request-scrollbar::-webkit-scrollbar {
+  width: 2rem;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+.custom-request-scrollbar::-webkit-scrollbar-track {
+  background-color: #15272d;
+}
+
+.custom-request-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #34d399;
+  border-radius: 10px;
+}
+
+.custom-request-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #10b981;
+}
+
+.custom-request-scrollbar::-webkit-resizer {
+  background-color: #2cffb1;
+}
+
+.custom-response-scrollbar {
+  scrollbar-gutter: auto;
+}
+
+.custom-response-scrollbar::-webkit-scrollbar {
+  width: 2rem;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+.custom-response-scrollbar::-webkit-scrollbar-track {
+  background-color: #15272d;
+}
+
+.custom-response-scrollbar::-webkit-scrollbar-corner {
+  background-color: #15272d;
+}
+.custom-response-scrollbar::-webkit-scrollbar-track-piece {
+  background-color: #15272d;
+}
+
+.custom-response-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #ffd560b2;
+  border-radius: 10px;
+}
+
+.custom-response-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #ffd460;
+}
+
+.overlay {
+  overflow: overlay;
+}
