@@ -6,10 +6,14 @@ interface Props {
 
 const JsonForm = (props: Props) => {
   return (
-    <div>
-      JSON
-      <textarea rows={10} cols={50} onChange={props.onJsonInput} />
-    </div>
+    <React.Fragment>
+      <textarea
+        className="text-black text-xl rounded-lg outline-none p-2 custom-request-scrollbar  "
+        rows={5}
+        cols={50}
+        onChange={props.onJsonInput}
+      />
+    </React.Fragment>
   );
 };
 
