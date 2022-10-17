@@ -8,14 +8,11 @@ type Props = {
 
 const ResponseMetrics = (props: Props) => {
   return (
-    <div className="flex">
-      <div>
-        <h3 className="text-center">Response</h3>
-        <div className="flex">
-          <div>Status: {props.status}</div>
-          <div>Time: {props.time}ms</div>
-          <div>Size: {props.size}</div>
-        </div>
+    <div className="flex mb-5">
+      <div className="flex">
+        <div className="mr-3">Status: {props.status}</div>
+        <div className="mr-3">Time: {props.time}ms</div>
+        <div className="mr-3">Size: {props.size}</div>
       </div>
     </div>
   );

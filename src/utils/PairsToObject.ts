@@ -1,7 +1,7 @@
-export const PairsToObject = (key, value) => {
-  if (key === '') {
-    return;
-  }
-  const params = { [key]: value };
-  return params;
+export const PairsToObject = (array, keyName, valueName) => {
+  const newObject = array.map((el) => {
+    return { [keyName]: valueName };
+  });
+
+  return newObject;
 };

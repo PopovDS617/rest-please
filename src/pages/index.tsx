@@ -33,17 +33,26 @@ const Homepage = () => {
   });
 
   const sumbitData = async (input) => {
+    let queryList;
+    input.query.forEach((el) => {
+      queryList = { ...queryList, [el.queryKey]: el.queryValue };
+    });
+
+    let headersList;
+    input.headers.forEach((el) => {
+      headersList = { ...headersList, [el.headersKey]: el.headersValue };
+    });
+
+    console.log(queryList);
     const options = {
       url: input.url,
       method: input.method,
-      params: PairsToObject(input.query.queryKey, input.query.queryValue),
-      headers: PairsToObject(
-        input.headers.headersKey,
-        input.headers.headersValue
-      ),
+      params: queryList,
+      headers: headersList,
       data: input.json ? JSON.parse(input.json) : null,
     };
 
+    console.log(options);
     try {
       const response = await axios(options);
       setResponseData(response);
@@ -53,7 +62,7 @@ const Homepage = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col justify-start items-center mt-10">
+    <div className="h-screen flex flex-col justify-start items-center bg-customDarkBlue p-10">
       <MainForm onLoadData={sumbitData} />
       {responseData && <MainResponse loadedData={responseData} />}
     </div>

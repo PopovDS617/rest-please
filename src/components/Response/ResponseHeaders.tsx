@@ -12,8 +12,8 @@ const ResponseHeaders = (props: Props) => {
     }
     Object.entries(headers).forEach(([key, value]) => {
       array.push(
-        <div className="flex">
-          <div>{key}</div>
+        <div className="flex px-5 m-2 py-1" key={Math.random() * 10}>
+          <div className="mr-2 w-32">{key}</div>
           <div>{value}</div>
         </div>
       );
@@ -23,9 +23,11 @@ const ResponseHeaders = (props: Props) => {
   const headersList = updateResponseHeaders(props.headersData);
 
   return (
-    <div>
-      <div>Headers</div>
-      {headersList}
+    <div className="w-5/12">
+      <div className="text-center text-2xl mb-2">Headers</div>
+      <div className=" bg-black rounded-xl ml-2 font-mono text-yellow-300 p-5 h-96 overlay custom-response-scrollbar ">
+        {headersList}
+      </div>
     </div>
   );
 };

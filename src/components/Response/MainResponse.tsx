@@ -10,25 +10,26 @@ type Props = {
 };
 
 const MainResponse = (props: Props) => {
-  console.log(props.loadedData);
   return (
-    <div>
-      <ResponseMetrics
-        status={props.loadedData.status}
-        time={
-          props.loadedData.customData?.time
-            ? props.loadedData.customData.time
-            : 0
-        }
-        size={
-          props.loadedData.data &&
-          prettyBytes(
-            JSON.stringify(props.loadedData.data).length +
-              JSON.stringify(props.loadedData.headers).length
-          )
-        }
-      />
-      <div className="flex">
+    <div className="w-full mt-2     text-white mx-auto  ">
+      <div className="flex justify-start ">
+        <ResponseMetrics
+          status={props.loadedData.status}
+          time={
+            props.loadedData.customData?.time
+              ? props.loadedData.customData.time
+              : 0
+          }
+          size={
+            props.loadedData.data &&
+            prettyBytes(
+              JSON.stringify(props.loadedData.data).length +
+                JSON.stringify(props.loadedData.headers).length
+            )
+          }
+        />
+      </div>
+      <div className="flex justify-center ">
         <ResponseBody bodyData={props.loadedData.data} />
         <ResponseHeaders headersData={props.loadedData.headers} />
       </div>
