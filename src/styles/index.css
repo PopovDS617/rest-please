@@ -34,6 +34,10 @@ body {
 
 .custom-request-scrollbar::-webkit-resizer {
   background-color: #2cffb1;
+  border-radius: 10px;
+}
+.custom-request-scrollbar::-webkit-scrollbar-corner {
+  background-color: #15272d;
 }
 
 .custom-response-scrollbar {

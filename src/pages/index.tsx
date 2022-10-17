@@ -38,21 +38,21 @@ const Homepage = () => {
       queryList = { ...queryList, [el.queryKey]: el.queryValue };
     });
 
-    let headersList;
+    let headersList = null;
     input.headers.forEach((el) => {
-      headersList = { ...headersList, [el.headersKey]: el.headersValue };
+      if (el.headersKey !== '' && el.headersValue !== '') {
+        headersList = { ...headersList, [el.headersKey]: el.headersValue };
+      }
     });
 
-    console.log(queryList);
     const options = {
       url: input.url,
       method: input.method,
-      params: queryList,
+      params: queryList ? queryList : null,
       headers: headersList,
       data: input.json ? JSON.parse(input.json) : null,
     };
 
-    console.log(options);
     try {
       const response = await axios(options);
       setResponseData(response);
