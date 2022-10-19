@@ -20,7 +20,7 @@ body {
 }
 
 .custom-request-scrollbar::-webkit-scrollbar-track {
-  background-color: black;
+  background-color: #15272d;
 }
 
 .custom-request-scrollbar::-webkit-scrollbar-thumb {
@@ -37,7 +37,7 @@ body {
   border-radius: 10px;
 }
 .custom-request-scrollbar::-webkit-scrollbar-corner {
-  background-color: black;
+  background-color: #15272d;
 }
 
 .custom-response-scrollbar {
