@@ -21,6 +21,8 @@ module.exports = {
       customGreen: '#9ec1a3',
       customLightGreen: '#cfe0c3',
       customYellow: '#FFD460',
+      customButtonColor: '#009D5D',
+      customBackgroundColor: '#001E26',
     },
   },
   variants: {},
