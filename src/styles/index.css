@@ -55,7 +55,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .custom-request-scrollbar::-webkit-scrollbar-track {
-  background-color: #15272d;
+  background-color: #001e26;
 }
 
 .custom-request-scrollbar::-webkit-scrollbar-thumb {
@@ -72,7 +72,7 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 10px;
 }
 .custom-request-scrollbar::-webkit-scrollbar-corner {
-  background-color: #15272d;
+  background-color: #001e26;
 }
 
 .custom-response-scrollbar {
