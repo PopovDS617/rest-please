@@ -145,6 +145,8 @@ const MainForm = (props: Props) => {
           <div className="flex flex-col">
             {formData.query.map((input) => (
               <QueryParamsForm
+                keyInput={input.queryKey}
+                valueInput={input.queryValue}
                 key={input.queryId}
                 id={input.queryId}
                 onQueryInput={queryInputHandler.bind(null, input.queryId)}
