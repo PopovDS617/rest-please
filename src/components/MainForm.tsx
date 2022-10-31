@@ -112,7 +112,7 @@ const MainForm = (props: Props) => {
         <div className="text-center mr-10">
           <button
             className={` hover:bg-emerald-500  ${
-              selectedOption === 'query' ? 'bg-emerald-400' : 'bg-emerald-200'
+              selectedOption === 'query' ? 'customButtonColor' : 'bg-emerald-200'
             } text-lg p-2 rounded-lg w-40 transition-all duration-200`}
             onClick={switchOption.bind(null, 'query')}
           >
@@ -122,7 +122,7 @@ const MainForm = (props: Props) => {
         <div className="text-centerr mr-10">
           <button
             className={` hover:bg-emerald-500 ${
-              selectedOption === 'headers' ? 'bg-emerald-400' : 'bg-emerald-200'
+              selectedOption === 'headers' ? 'customButtonColor' : 'bg-emerald-200'
             } text-lg p-2 rounded-lg w-40 transition-all duration-200`}
             onClick={switchOption.bind(null, 'headers')}
           >
@@ -132,7 +132,7 @@ const MainForm = (props: Props) => {
         <div className="text-centerr  ">
           <button
             className={` hover:bg-emerald-500 ${
-              selectedOption === 'json' ? 'bg-emerald-400' : 'bg-emerald-200'
+              selectedOption === 'json' ? 'customButtonColor' : 'bg-emerald-200'
             } text-lg p-2 rounded-lg w-52 transition-all duration-200`}
             onClick={switchOption.bind(null, 'json')}
           >
