@@ -131,7 +131,7 @@ const MainForm = (props: Props) => {
 
   return (
     <motion.div
-      className="w-full"
+      className="w-full  "
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -40, opacity: 0 }}

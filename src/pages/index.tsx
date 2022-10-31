@@ -71,7 +71,7 @@ const Homepage = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col justify-start items-center bg-customDarkBlue p-10 custom-page-scrollbar">
+    <div className="h-screen flex flex-col justify-start items-center p-10 custom-page-scrollbar">
       <MainForm onLoadData={sumbitData} />
 
       {responseData && <MainResponse loadedData={responseData} />}

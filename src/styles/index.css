@@ -8,6 +8,8 @@ body {
   background-color: #001e26;
   overflow: overlay;
   scrollbar-gutter: auto;
+  transition: all;
+  transition-duration: 350ms;
 }
 
 body {
@@ -21,14 +23,14 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background-color: black;
+  background-color: #001e26;
 }
 
 body::-webkit-scrollbar-corner {
-  background-color: black;
+  background-color: #001e26;
 }
 body::-webkit-scrollbar-track-piece {
-  background-color: black;
+  background-color: #001e26;
 }
 
 body::-webkit-scrollbar-thumb {
