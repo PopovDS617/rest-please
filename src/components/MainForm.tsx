@@ -2,6 +2,7 @@ import React, { FormEvent, useState } from 'react';
 import JsonForm from './Forms/JsonForm';
 import QueryParamsForm from './Forms/QueryParamsForm';
 import RequestHeadersForm from './Forms/RequestHeadersForm';
+import AddFormIcon from './AddFormIcon'
 
 interface Props {
   onLoadData: (data) => void;
@@ -152,6 +153,7 @@ const MainForm = (props: Props) => {
                 onQueryInput={queryInputHandler.bind(null, input.queryId)}
               />
             ))}
+            <AddFormIcon/>
           </div>
         )}
 
