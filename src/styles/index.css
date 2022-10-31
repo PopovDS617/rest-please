@@ -5,7 +5,14 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #001e26;
+
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 30, 38, 1) 100%
+  );
+
   overflow: overlay;
   scrollbar-gutter: auto;
   transition: all;
@@ -23,14 +30,14 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background-color: #001e26;
+  background-color: transparent;
 }
 
 body::-webkit-scrollbar-corner {
-  background-color: #001e26;
+  background-color: transparent;
 }
 body::-webkit-scrollbar-track-piece {
-  background-color: #001e26;
+  background-color: transparent;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -86,14 +93,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .custom-response-scrollbar::-webkit-scrollbar-track {
-  background-color: black;
 }
 
 .custom-response-scrollbar::-webkit-scrollbar-corner {
-  background-color: black;
 }
 .custom-response-scrollbar::-webkit-scrollbar-track-piece {
-  background-color: black;
 }
 
 .custom-response-scrollbar::-webkit-scrollbar-thumb {

@@ -24,8 +24,8 @@ const ResponseHeaders = (props: Props) => {
 
   return (
     <div className="w-5/12">
-      <div className="text-center text-2xl mb-2">Headers</div>
-      <div className=" bg-black rounded-xl ml-2 font-mono text-yellow-300 p-5 h-96 overlay custom-response-scrollbar ">
+      <div className="text-center text-2xl mb-2 text-yellow-300">Headers</div>
+      <div className=" bg-transparent rounded-xl ml-2 font-mono text-yellow-300   p-5 h-96 overlay custom-response-scrollbar border-4 border-yellow-300 ">
         {headersList}
       </div>
     </div>
