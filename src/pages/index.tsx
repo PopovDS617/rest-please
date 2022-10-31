@@ -14,7 +14,7 @@ export interface ICustomRequest extends AxiosRequestConfig {
 
 const Homepage = () => {
   const [responseData, setResponseData] = useState(null);
-console.log(responseData)
+ 
   axios.interceptors.request.use((request: ICustomRequest) => {
     request.customData = request.customData || {};
     request.customData.startTime = new Date().getTime();
@@ -54,7 +54,9 @@ console.log(responseData)
     };
 
     try {
+      
       const response = await axios(options);
+      console.log(response)
       setResponseData(response);
     } catch (error) {
       console.log(error)
