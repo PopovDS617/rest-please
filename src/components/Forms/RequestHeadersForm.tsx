@@ -7,9 +7,9 @@ interface Props {
 
 const RequestHeadersForm = (props: Props) => {
   return (
-    <div className="text-black">
+    <div className="text-black my-3">
       <input
-        className="mr-2 text-lg rounded-lg p-1 outline-none"
+        className="mr-3 text-lg rounded-lg p-1 outline-none"
         name="headersKey"
         placeholder="key"
         onChange={props.onHeadersInput}
