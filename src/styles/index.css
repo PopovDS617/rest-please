@@ -92,13 +92,13 @@ body::-webkit-scrollbar-thumb:hover {
   margin: 2rem;
 }
 
-.custom-response-scrollbar::-webkit-scrollbar-track {
+/* .custom-response-scrollbar::-webkit-scrollbar-track {
 }
 
 .custom-response-scrollbar::-webkit-scrollbar-corner {
 }
 .custom-response-scrollbar::-webkit-scrollbar-track-piece {
-}
+} */
 
 .custom-response-scrollbar::-webkit-scrollbar-thumb {
   background-color: #ffd560b2;
