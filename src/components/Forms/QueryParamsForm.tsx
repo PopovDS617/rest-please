@@ -3,6 +3,8 @@ import React from 'react';
 interface Props {
   onQueryInput: (event) => void;
   id: string;
+  keyInput:string;
+  valueInput:string;
 }
 
 const QueryParamsForm = (props: Props) => {
@@ -13,12 +15,14 @@ const QueryParamsForm = (props: Props) => {
         name="queryKey"
         placeholder="key"
         onChange={props.onQueryInput}
+        value={props.keyInput}
       />
       <input
         className=" text-lg rounded-lg p-1 outline-none"
         name="queryValue"
         placeholder="value"
         onChange={props.onQueryInput}
+        value={props.valueInput}
       />
       <button className="m-1"> del</button>
     </div>
