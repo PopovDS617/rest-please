@@ -9,9 +9,9 @@ interface Props {
 
 const QueryParamsForm = (props: Props) => {
   return (
-    <div className="text-black my-2">
+    <div className="text-black my-3">
       <input
-        className="mr-2 text-lg rounded-lg p-1 outline-none"
+        className="mr-3 text-lg rounded-lg p-1 outline-none"
         name="queryKey"
         placeholder="key"
         onChange={props.onQueryInput}
