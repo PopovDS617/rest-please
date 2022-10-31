@@ -4,6 +4,7 @@ import ResponseBody from './ResponseBody';
 import ResponseHeaders from './ResponseHeaders';
 import ResponseMetrics from './ResponseMetrics';
 import prettyBytes from 'pretty-bytes';
+import { motion } from 'framer-motion';
 
 type Props = {
   loadedData: IResponse;
@@ -11,7 +12,13 @@ type Props = {
 
 const MainResponse = (props: Props) => {
   return (
-    <div className="w-full mt-2     text-white mx-auto  ">
+    <motion.div
+      className="w-full mt-2     text-white mx-auto    "
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5, delay: 0.1 }}
+    >
       <div className="flex justify-start ">
         <ResponseMetrics
           status={props.loadedData.status}
@@ -33,7 +40,7 @@ const MainResponse = (props: Props) => {
         <ResponseBody bodyData={props.loadedData.data} />
         <ResponseHeaders headersData={props.loadedData.headers} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

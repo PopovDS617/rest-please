@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import '../styles/index.css';
+import { AnimatePresence } from 'framer-motion';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -8,7 +9,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Component {...pageProps} />
+      <AnimatePresence mode="wait" initial={true}>
+        <Component {...pageProps} />
+      </AnimatePresence>
     </>
   );
 }

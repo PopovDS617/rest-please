@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import MainForm from '../components/MainForm';
 import MainResponse from '../components/Response/MainResponse';
 import axios from 'axios';
-import { PairsToObject } from '../utils/PairsToObject';
 
 import { AxiosRequestConfig } from 'axios';
 export interface ICustomRequest extends AxiosRequestConfig {
@@ -14,7 +13,7 @@ export interface ICustomRequest extends AxiosRequestConfig {
 
 const Homepage = () => {
   const [responseData, setResponseData] = useState(null);
- 
+
   axios.interceptors.request.use((request: ICustomRequest) => {
     request.customData = request.customData || {};
     request.customData.startTime = new Date().getTime();
@@ -35,7 +34,7 @@ const Homepage = () => {
   const sumbitData = async (input) => {
     let queryList;
     input.query.forEach((el) => {
-      queryList = { ...queryList, [el.queryKey]: el.queryValue };
+      queryList = { ...queryList, [el.queryKey.trim()]: el.queryValue.trim() };
     });
 
     let headersList = null;
@@ -46,27 +45,35 @@ const Homepage = () => {
     });
 
     const options = {
-      url: input.url,
+      url: input.url.trim(),
       method: input.method,
       params: queryList ? queryList : null,
       headers: headersList,
       data: input.json ? JSON.parse(input.json) : null,
+      // transformResponse: (res) => {
+      //   // Do your own parsing here if needed ie JSON.parse(res);
+      //   console.log(res);
+      //   return res;
+      // },
     };
-
     try {
-      
       const response = await axios(options);
-      console.log(response)
+      //  console.log(response);
+      // if (!response) {
+      //   console.log('oops');
+      //   setResponseData('something went wrong');
+      // }
       setResponseData(response);
     } catch (error) {
-      console.log(error)
+      //console.log(error);
       setResponseData(error.response?.response);
     }
   };
 
   return (
-    <div className="h-screen flex flex-col justify-start items-center bg-customDarkBlue p-10">
+    <div className="h-screen flex flex-col justify-start items-center bg-customDarkBlue p-10 custom-page-scrollbar">
       <MainForm onLoadData={sumbitData} />
+
       {responseData && <MainResponse loadedData={responseData} />}
     </div>
   );

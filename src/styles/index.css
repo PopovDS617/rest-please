@@ -5,9 +5,42 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #001E26;
+  background-color: #001e26;
   overflow: overlay;
+  scrollbar-gutter: auto;
 }
+
+body {
+  scrollbar-gutter: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 2rem;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+body::-webkit-scrollbar-corner {
+  background-color: black;
+}
+body::-webkit-scrollbar-track-piece {
+  background-color: black;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #87edc3;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #00dc82;
+}
+
+/* */
 
 .custom-request-scrollbar {
   scrollbar-gutter: auto;

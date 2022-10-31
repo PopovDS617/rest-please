@@ -3,24 +3,25 @@ import JsonForm from './Forms/JsonForm';
 import QueryParamsForm from './Forms/QueryParamsForm';
 import RequestHeadersForm from './Forms/RequestHeadersForm';
 import AddFormIcon from './AddFormIcon';
+import { motion } from 'framer-motion';
 
 interface Props {
   onLoadData: (data) => void;
 }
 
 const MainForm = (props: Props) => {
+  const animationOptions = {
+    initial: { y: 20, opacity: 0.5 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: -20, opacity: 0 },
+  };
+
   const [formData, setFormData] = useState({
     url: '',
     method: 'GET',
-    query: [
-      { queryId: '1', queryKey: '', queryValue: '' },
-      { queryId: '2', queryKey: '', queryValue: '' },
-    ],
+    query: [],
 
-    headers: [
-      { headersId: '1', headersKey: '', headersValue: '' },
-      { headersId: '2', headersKey: '', headersValue: '' },
-    ],
+    headers: [],
 
     json: '',
   });
@@ -82,8 +83,60 @@ const MainForm = (props: Props) => {
     props.onLoadData(formData);
   };
 
+  const addQueryForm = () => {
+    setFormData((prev) => {
+      const updatedQueryArray = [...prev.query];
+      updatedQueryArray.push({
+        queryId: (updatedQueryArray.length + 1).toString(),
+        queryKey: '',
+        queryValue: '',
+      });
+
+      return { ...prev, query: updatedQueryArray };
+    });
+  };
+
+  const deleteQueryForm = (id) => {
+    setFormData((prev) => {
+      const queryArray = [...prev.query];
+      const filteredQueryArray = queryArray.filter((el) => el.queryId !== id);
+
+      return { ...prev, query: filteredQueryArray };
+    });
+  };
+
+  const addHeadersForm = () => {
+    setFormData((prev) => {
+      const updatedHeadersArray = [...prev.headers];
+      updatedHeadersArray.push({
+        headersId: (updatedHeadersArray.length + 1).toString(),
+        headersKey: '',
+        headersValue: '',
+      });
+
+      return { ...prev, headers: updatedHeadersArray };
+    });
+  };
+
+  const deleteHeadersForm = (id) => {
+    setFormData((prev) => {
+      const headersArray = [...prev.headers];
+      const filteredHeadersArray = headersArray.filter(
+        (el) => el.headersId !== id
+      );
+
+      return { ...prev, headers: filteredHeadersArray };
+    });
+  };
+
   return (
-    <div className="w-full  ">
+    <motion.div
+      className="w-full"
+      initial={{ y: -40, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -40, opacity: 0 }}
+      transition={{ duration: 0.7, delay: 1 }}
+    >
       <form
         className="flex justify-center items-center   mx-auto"
         onSubmit={submitHandler}
@@ -105,36 +158,53 @@ const MainForm = (props: Props) => {
           name="url"
           onChange={formInputHandler}
         />
-        <button className=" hover:bg-emerald-500 bg-customButtonColor text-lg p-2 rounded-r-lg w-20 transition-all duration-200">
+        <button
+          className={`text-lg p-2 rounded-r-lg w-20 transition-all duration-500 
+            ${
+              formData.url.length < 3
+                ? 'bg-gray-600 '
+                : ` hover:bg-emerald-500 bg-customButtonColor`
+            }`}
+          disabled={formData.url.length < 3 ? true : false}
+        >
           SEND
         </button>
       </form>
       <div className="flex justify-center items-start   mt-5 text-black ">
         <div className="text-center mr-10">
           <button
-            className={` hover:bg-emerald-500  ${
-              selectedOption === 'query' ? 'bg-customButtonColor' : 'bg-emerald-200'
+            className={`border-2 border-customPaleButtonColor   hover:scale-105 transition-all duration-300  
+            ${
+              selectedOption === 'query'
+                ? 'text-black bg-customButtonColor  border-customButtonColor transition-all duration-300 '
+                : 'text-white '
             } text-lg p-2 rounded-lg w-40 transition-all duration-200`}
             onClick={switchOption.bind(null, 'query')}
           >
             Query params
           </button>
         </div>
-        <div className="text-centerr mr-10">
+        <div className="text-center mr-10">
           <button
-            className={` hover:bg-emerald-500 ${
-              selectedOption === 'headers' ? 'bg-customButtonColor' : 'bg-emerald-200'
+            className={`border-2 border-customPaleButtonColor   hover:scale-105 transition-all duration-300  
+            ${
+              selectedOption === 'headers'
+                ? 'text-black bg-customButtonColor  border-customButtonColor transition-all duration-300 '
+                : 'text-white '
             } text-lg p-2 rounded-lg w-40 transition-all duration-200`}
             onClick={switchOption.bind(null, 'headers')}
           >
             Request headers
           </button>
         </div>
-        <div className="text-centerr  ">
+        <div className="text-center  ">
           <button
-            className={` hover:bg-emerald-500 ${
-              selectedOption === 'json' ? 'bg-customButtonColor' : 'bg-emerald-200'
-            } text-lg p-2 rounded-lg w-52 transition-all duration-200`}
+            className={`border-2 border-customPaleButtonColor   hover:scale-105 transition-all duration-300  
+            ${
+              selectedOption === 'json'
+                ? 'text-black bg-customButtonColor  border-customButtonColor transition-all duration-300 '
+                : 'text-white '
+            } text-lg p-2 rounded-lg w-60 transition-all duration-200`}
             onClick={switchOption.bind(null, 'json')}
           >
             data in JSON format
@@ -143,7 +213,14 @@ const MainForm = (props: Props) => {
       </div>
       <div className="flex justify-center items-start mt-5 ">
         {selectedOption === 'query' && (
-          <div className="flex flex-col">
+          <motion.div
+            className="flex flex-col"
+            variants={animationOptions}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.5, delay: 0 }}
+          >
             {formData.query.map((input) => (
               <QueryParamsForm
                 keyInput={input.queryKey}
@@ -151,29 +228,59 @@ const MainForm = (props: Props) => {
                 key={input.queryId}
                 id={input.queryId}
                 onQueryInput={queryInputHandler.bind(null, input.queryId)}
+                onDeleteInput={deleteQueryForm.bind(null, input.queryId)}
               />
             ))}
-            <AddFormIcon/>
-          </div>
+            <button
+              className="cursor-pointer text-customPaleButtonColor hover:text-customButtonColor transition-all duration-150"
+              onClick={addQueryForm}
+            >
+              <AddFormIcon />
+            </button>
+          </motion.div>
         )}
 
         {selectedOption === 'headers' && (
-          <div className="flex flex-col">
+          <motion.div
+            className="flex flex-col"
+            variants={animationOptions}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.5, delay: 0 }}
+          >
             {formData.headers.map((input) => (
               <RequestHeadersForm
+                keyInput={input.headersKey}
+                valueInput={input.headersValue}
                 key={input.headersId}
                 id={input.headersId}
                 onHeadersInput={headersInputHandler.bind(null, input.headersId)}
+                onDeleteInput={deleteHeadersForm.bind(null, input.headersId)}
               />
             ))}
-          </div>
+            <div
+              className="cursor-pointer text-customPaleButtonColor hover:text-customButtonColor transition-all duration-150"
+              onClick={addHeadersForm}
+            >
+              <AddFormIcon />
+            </div>
+          </motion.div>
         )}
-
-        {selectedOption === 'json' && (
-          <JsonForm onJsonInput={JsonInputHandler} />
-        )}
+        <motion.div
+          className="flex flex-col"
+          variants={animationOptions}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition={{ duration: 0.5, delay: 0 }}
+        >
+          {selectedOption === 'json' && (
+            <JsonForm onJsonInput={JsonInputHandler} />
+          )}
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
