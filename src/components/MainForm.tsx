@@ -173,7 +173,7 @@ const MainForm = (props: Props) => {
       <div className="flex justify-center items-start   mt-5 text-black ">
         <div className="text-center mr-10">
           <button
-            className={`border-2 border-customPaleButtonColor font-bold   hover:scale-105 transition-all duration-300  
+            className={`border-2 border-customButtonColor font-bold   hover:scale-105 transition-all duration-300  
             ${
               selectedOption === 'query'
                 ? 'text-black bg-customButtonColor  border-customButtonColor transition-all duration-300 '
@@ -186,7 +186,7 @@ const MainForm = (props: Props) => {
         </div>
         <div className="text-center mr-10">
           <button
-            className={`border-2 border-customPaleButtonColor font-bold   hover:scale-105 transition-all duration-300  
+            className={`border-2 border-customButtonColor font-bold   hover:scale-105 transition-all duration-300  
             ${
               selectedOption === 'headers'
                 ? 'text-black bg-customButtonColor  border-customButtonColor transition-all duration-300 '
@@ -199,7 +199,7 @@ const MainForm = (props: Props) => {
         </div>
         <div className="text-center  ">
           <button
-            className={`border-2 border-customPaleButtonColor font-bold   hover:scale-105 transition-all duration-300  
+            className={`border-2 border-customButtonColor font-bold   hover:scale-105 transition-all duration-300  
             ${
               selectedOption === 'json'
                 ? 'text-black bg-customButtonColor  border-customButtonColor transition-all duration-300 '
