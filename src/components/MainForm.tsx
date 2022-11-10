@@ -159,7 +159,7 @@ const MainForm = (props: Props) => {
           onChange={formInputHandler}
         />
         <button
-          className={`text-lg p-2 rounded-r-lg w-20 transition-all duration-500 
+          className={`text-lg p-2 rounded-r-lg w-20 transition-all duration-500 font-bold
             ${
               formData.url.length < 3
                 ? 'bg-gray-600 '
