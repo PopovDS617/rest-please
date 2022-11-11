@@ -14,6 +14,8 @@ const ResponseMetrics = (props: Props) => {
         <div className="mr-3 ">Time: {props.time}ms</div>
         <div className="mr-3">Size: {props.size}</div>
       </div>
+      <div className="flex">Errors: none
+         </div>
     </div>
   );
 };
