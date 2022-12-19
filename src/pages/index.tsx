@@ -50,22 +50,14 @@ const Homepage = () => {
       params: queryList ? queryList : null,
       headers: headersList,
       data: input.json ? JSON.parse(input.json) : null,
-      // transformResponse: (res) => {
-      //   // Do your own parsing here if needed ie JSON.parse(res);
-      //   console.log(res);
-      //   return res;
-      // },
+    
     };
     try {
       const response = await axios(options);
-      //  console.log(response);
-      // if (!response) {
-      //   console.log('oops');
-      //   setResponseData('something went wrong');
-      // }
+     
       setResponseData(response);
     } catch (error) {
-      //console.log(error);
+    
       setResponseData(error.response?.response);
     }
   };
