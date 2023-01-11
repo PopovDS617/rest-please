@@ -16,7 +16,7 @@ const RequestHeadersForm = (props: Props) => {
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
-      transition={{ duration: 0.5, delay: 0.1 }}
+      transition={{ duration: 0.5, delay: 0 }}
     >
       <input
         className="mr-3 text-lg rounded-lg p-1 outline-none"
