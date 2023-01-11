@@ -4,6 +4,7 @@ import MainResponse from '../components/Response/MainResponse';
 import axios from 'axios';
 
 import { AxiosRequestConfig } from 'axios';
+import Logo from '../components/Logo';
 export interface ICustomRequest extends AxiosRequestConfig {
   customData?: {
     time?: number;
@@ -72,8 +73,8 @@ const Homepage = () => {
 
   return (
     <div className="h-full flex flex-col justify-start items-center p-10 custom-page-scrollbar">
+      <Logo />
       <MainForm onLoadData={sumbitData} />
-
       {responseData && <MainResponse loadedData={responseData} />}
     </div>
   );
