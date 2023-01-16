@@ -1,12 +1,11 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import url('https://fonts.googleapis.com/css2?family=Overlock:ital@1&family=Rowdies:wght@700&display=swap');
 
 html {
   background-color: black;
-  font-family: 'Overlock', cursive;
-font-family: 'Rowdies', cursive;
+  /* font-family: 'Overlock', cursive;
+font-family: 'Rowdies', cursive; */
 }
 
 body {

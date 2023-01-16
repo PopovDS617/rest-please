@@ -51,20 +51,18 @@ const Homepage = () => {
       params: queryList ? queryList : null,
       headers: headersList,
       data: input.json ? JSON.parse(input.json) : null,
-    
     };
     try {
       const response = await axios(options);
-     
+
       setResponseData(response);
     } catch (error) {
-    
       setResponseData(error.response?.response);
     }
   };
 
   return (
-    <div className="h-full flex flex-col justify-start items-center p-10 custom-page-scrollbar">
+    <div className="h-full flex flex-col justify-center items-center p-2 custom-page-scrollbar">
       <Logo />
       <MainForm onLoadData={sumbitData} />
       {responseData && <MainResponse loadedData={responseData} />}

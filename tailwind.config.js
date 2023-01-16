@@ -27,6 +27,8 @@ module.exports = {
       customPaleDeleteColor: '#d95757',
       customDeleteColor: '#db0d0d',
     },
+
+    fontFamily: { overlock: 'Overlock', rowdies: 'Rowdies' },
   },
   variants: {},
   plugins: [],
