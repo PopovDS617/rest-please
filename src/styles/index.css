@@ -56,6 +56,9 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: #00dc82;
 }
 
+body::-webkit-scrollbar-corner { background-color: transparent;
+}
+
 /* */
 
 .custom-request-scrollbar {
@@ -86,7 +89,7 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 10px;
 }
 .custom-request-scrollbar::-webkit-scrollbar-corner {
-  background-color: #001e26;
+  background-color: transparent;
 }
 
 .custom-response-scrollbar {
