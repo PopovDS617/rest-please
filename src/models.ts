@@ -1,4 +1,4 @@
-export interface IResponse {
+export interface Response {
   status: number | string;
   customData?: { time: number };
   headers: {};

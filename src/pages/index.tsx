@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import { AxiosRequestConfig } from 'axios';
 import Logo from '../components/Logo';
-export interface ICustomRequest extends AxiosRequestConfig {
+export interface CustomRequest extends AxiosRequestConfig {
   customData?: {
     time?: number;
     startTime?: number;
@@ -15,7 +15,7 @@ export interface ICustomRequest extends AxiosRequestConfig {
 const Homepage = () => {
   const [responseData, setResponseData] = useState(null);
 
-  axios.interceptors.request.use((request: ICustomRequest) => {
+  axios.interceptors.request.use((request: CustomRequest) => {
     request.customData = request.customData || {};
     request.customData.startTime = new Date().getTime();
     return request;

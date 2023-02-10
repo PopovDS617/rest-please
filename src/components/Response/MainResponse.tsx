@@ -1,12 +1,12 @@
 import React from 'react';
-import { IResponse } from '../../models';
+import { Response } from '../../models';
 import ResponseBody from './ResponseBody';
 import ResponseHeaders from './ResponseHeaders';
 import ResponseMetrics from './ResponseMetrics';
 import prettyBytes from 'pretty-bytes';
 
 type Props = {
-  loadedData: IResponse;
+  loadedData: Response;
 };
 
 const MainResponse = (props: Props) => {
