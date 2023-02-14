@@ -1,5 +1,12 @@
-# usual:
+## DEMO https://rest-please.vercel.app/
 
-### npm install
 
-### npm run dev
+## Getting Started
+#### `1. npm install`
+#### `2. npm run dev`
+
+<br>
+
+## TO DO:
+
+to be added later 
